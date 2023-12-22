@@ -1,0 +1,19 @@
+name: Makefile CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install required pakages
+      run: sudo apt install libcurl4-openssl-dev curl openssl libssl-dev gcc
+    - name: Install dependencies
+      run: make
